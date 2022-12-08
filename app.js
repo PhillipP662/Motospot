@@ -20,7 +20,7 @@ const {frameguard} = require("helmet");
 const dev_db_url = 'mongodb+srv://motorspotDev:motorspotDevPassword@motorspot.croipzn.mongodb.net/?retryWrites=true&w=majority';
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(result => app.listen(5000))
+    .then(result => app.listen(process.env.PORT || 5000))
     .catch(err => console.log(err));
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
