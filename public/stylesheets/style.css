@@ -8,6 +8,7 @@
 
 html {
     height: 100%;
+    background-color: black;
 }
 body{
     font-family: montserrat, sans-serif;
@@ -29,11 +30,12 @@ nav{
     top: 0; left: 0; right: 0;
     z-index: 9999;
 }
-label.logo{
+.logoA {
     color: white;
     font-size: 35px;
     line-height: 80px;
-    padding: 0 100px;
+    margin-left: 80px;
+    padding: 10px 10px;
     font-weight: bold;
 }
 nav .navlist{
@@ -69,7 +71,7 @@ a.active,a:hover{
 #check{
     display: none;
 }
-@media (max-width: 1642px){
+@media (max-width: 1556px){
     .checkbtn{
         display: block;
     }
@@ -100,16 +102,17 @@ a.active,a:hover{
     }
 }
 @media (max-width: 442px){
-    label.logo {
+    .logoA {
         color: white;
         font-size: 35px;
         line-height: 80px;
         padding: 0 30px;
+        margin-left: 5px;
         font-weight: bold;
     }
 }
-@media (max-width: 302px){
-    label.logo {
+@media (max-width: 307px){
+    .logoA {
         display: none;
     }
     .checkbtn{
