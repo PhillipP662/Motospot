@@ -1,15 +1,21 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 // Require our controllers.
-var model_controller = require("../controllers/modelController");
-var brand_controller = require("../controllers/brandController");
-var biketype_controller = require("../controllers/biketypeController");
+const model_controller = require("../controllers/modelController");
+const brand_controller = require("../controllers/brandController");
+const biketype_controller = require("../controllers/biketypeController");
+const https = require("https");
+const Model = require("../models/model");
 
 /// MODEL ROUTES ///
 
 // GET catalog home page.
 router.get("/", model_controller.index);
+
+// GET catalog weather page.
+// router.get("/weather", model_controller.view_weather);
+router.get("/weather", model_controller.view_weather);
 
 // GET request for creating a Model. NOTE This must come before routes that display Model (uses id).
 router.get("/model/create", model_controller.model_create_get);

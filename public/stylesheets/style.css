@@ -71,7 +71,7 @@ a.active,a:hover{
 #check{
     display: none;
 }
-@media (max-width: 1556px){
+@media (max-width: 1665px){
     .checkbtn{
         display: block;
     }
@@ -365,4 +365,39 @@ iframe {
     padding: 2px;
     margin: 2px;
     font-size: 20px;
+}
+
+/* Weather */
+.weather-content {
+    position: relative;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+    height: 100vh;
+    margin: 0 auto;
+}
+.weather-content-inner h1 {
+    width: 580px;
+    font-size: 50px;
+    color: white;
+    margin: 10px auto;
+    padding-top: 50px;
+}
+.weather-content-inner p {
+    width: 80vw;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: normal;
+    padding: 20px 0;
+    color: white;
+}
+.reference {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: white;
 }
