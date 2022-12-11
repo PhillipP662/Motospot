@@ -14,8 +14,12 @@ const Model = require("../models/model");
 router.get("/", model_controller.index);
 
 // GET catalog weather page.
-// router.get("/weather", model_controller.view_weather);
 router.get("/weather", model_controller.view_weather);
+
+// GET catalog search page.
+router.get("/search", model_controller.search_model);
+// POST catalog search page.
+router.post("/getModels", model_controller.get_models);
 
 // GET request for creating a Model. NOTE This must come before routes that display Model (uses id).
 router.get("/model/create", model_controller.model_create_get);

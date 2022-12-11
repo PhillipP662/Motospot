@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const logger = require('morgan');
 const rateLimit = require("express-rate-limit");
 
@@ -81,27 +82,5 @@ app.use(helmet({
         action: "deny",
     },
 }));
-
-// weather api
-// app.get("/", function(req, res) {
-//     const lat = "51.05";
-//     const lon = "3.71667";
-//     const apiKey = "f64ef7294dd708ee261ec2d8e9e933f9";
-//     const api = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=metric";
-//     https.get(api, function(response) {
-//         response.on("data", function(data) {
-//             const jsondata = JSON.parse(data);
-//             const temp = jsondata.main.temp;
-//             const temp_min = jsondata.main.temp_min;
-//             const temp_max = jsondata.main.temp_max;
-//             const rain = jsondata.rain["1h"];
-//             const cloudyness = jsondata.clouds.all;
-//             const icon = jsondata.weather[0].icon;
-//             const imageurl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-//             res.render(__dirname + "/views/view_weather", {temp, temp_min, temp_max, rain, cloudyness, imageurl});
-//         });
-//     });
-// });
-
 
 module.exports = app;

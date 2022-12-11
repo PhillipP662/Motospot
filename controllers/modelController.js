@@ -51,6 +51,18 @@ exports.view_weather = function (req, res) {
   });
 };
 
+// Display search menu
+exports.search_model = function (req, res) {
+  res.render("search_model");
+};
+exports.get_models = async function (req, res) {
+  let payload = req.body.payload.trim();
+  let search = await Model.find({model_name: {$regex: new RegExp('^' + payload + '.*', 'i')}}).exec();
+  // Limit results to 10
+  search = search.slice(0, 10);
+  res.send({payload: search});
+};
+
 // Display list of all models.
 exports.model_list = function (req, res, next) {
   Model.find({}, "model_name brand")
@@ -145,7 +157,9 @@ exports.model_create_post = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
-  body("yt_url").trim().isLength({ min: 1 }),
+  body("yt_url")
+      .trim()
+      .isLength({ min: 1 }),
   body("biketype.*").escape(),
   // Process request after validation and sanitization.
   (req, res, next) => {
@@ -157,7 +171,7 @@ exports.model_create_post = [
       model_name: req.body.model_name,
       brand: req.body.brand,
       power: req.body.power,
-      yt_url: req.body.yt_url,
+      yt_url: req.body.yt_url.split('v=').slice(-1)[0].split('/').slice(-1)[0].split('&')[0],
       biketype: req.body.biketype,
     });
 
