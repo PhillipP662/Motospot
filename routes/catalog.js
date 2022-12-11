@@ -5,6 +5,7 @@ const router = express.Router();
 const model_controller = require("../controllers/modelController");
 const brand_controller = require("../controllers/brandController");
 const biketype_controller = require("../controllers/biketypeController");
+const extra_controller = require("../controllers/extraController");
 const https = require("https");
 const Model = require("../models/model");
 
@@ -14,12 +15,12 @@ const Model = require("../models/model");
 router.get("/", model_controller.index);
 
 // GET catalog weather page.
-router.get("/weather", model_controller.view_weather);
+router.get("/weather", extra_controller.view_weather);
 
 // GET catalog search page.
-router.get("/search", model_controller.search_model);
+router.get("/search", extra_controller.search_model);
 // POST catalog search page.
-router.post("/getModels", model_controller.get_models);
+router.post("/getModels", extra_controller.get_models);
 
 // GET request for creating a Model. NOTE This must come before routes that display Model (uses id).
 router.get("/model/create", model_controller.model_create_get);
@@ -96,5 +97,24 @@ router.get("/biketype/:id", biketype_controller.biketype_detail);
 
 // GET request for list of all BikeType.
 router.get("/biketypes", biketype_controller.biketype_list);
+
+/// COOKIES ///
+function validateCookie(req, res, next) {
+    const { cookies } = req;
+    if ('session_id' in cookies) {
+        console.log('Session ID Exists.');
+        if (cookies.session_id === '123456') next();
+        else res.status(403).send( { msg: 'Not Authenticated' });
+    }   else res.status(403).send( { msg: 'Not Authenticated' });
+}
+router.get("/signin", function(req, res) {
+    res.cookie('session_id', '123456');
+    res.status(200).json({ msg: 'Logged In' });
+    //res.render("tempView");
+});
+router.get("/protected", validateCookie, function(req, res) {
+    res.status(200).json( { msg: 'You are authorized!'});
+});
+
 
 module.exports = router;

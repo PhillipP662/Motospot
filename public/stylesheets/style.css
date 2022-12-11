@@ -499,3 +499,57 @@ iframe {
     color: white;
     font-size: 30px;
 }
+
+/* Cookies */
+.cookiewrapper {
+    visibility: hidden;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: white;
+    max-width: 365px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 25px 25px 30px 25px;
+}
+.cookiewrapper.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.cookiewrapper img {
+    max-width: 90px;
+}
+.cookiewrapper .cookiecontent {
+    margin-top: 10px;
+}
+.cookiecontent header {
+    font-size: 25px;
+    font-weight: 600;
+}
+.cookiecontent p {
+    color: #858585;
+    margin: 5px 0 20px 0;
+}
+.cookiecontent .cookiebuttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cookiebuttons .cookieitem {
+    margin: 0 10px;
+}
+.cookiebuttons button {
+    padding: 10px 20px;
+    background: #ff7518;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.cookiebuttons a {
+    color: #ff7518;
+}
