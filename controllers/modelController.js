@@ -45,7 +45,7 @@ exports.view_weather = function (req, res) {
       const temp_max = jsondata.main.temp_max;
       const cloudiness = jsondata.clouds.all;
       const icon = jsondata.weather[0].icon;
-      const imageurl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+      const imageurl = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
       res.render("weather_view", {temp, temp_min, temp_max, cloudiness, imageurl});
     });
   });
