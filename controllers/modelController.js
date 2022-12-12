@@ -247,7 +247,7 @@ exports.model_create_post = [
           return next(err);
         }
         // Successful - redirect to new model record.
-        res.redirect(model.url);
+        res.redirect(model.url_adm);
       });
     }
   },
@@ -450,7 +450,7 @@ exports.model_update_post = [
           return next(err);
         }
         // Successful - redirect to model detail page.
-        res.redirect(themodel.url);
+        res.redirect(themodel.url_adm);
       });
     }
   },

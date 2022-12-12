@@ -705,6 +705,10 @@ iframe {
         inline-size: min-content;
         width: 90%;
     }
+    #footertext2 {
+        inline-size: min-content;
+        width: 90%;
+    }
     .socials .socialIcon {
         padding: 20px 10px;
     }

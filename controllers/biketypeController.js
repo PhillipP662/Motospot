@@ -139,14 +139,14 @@ exports.biketype_create_post = [
 
         if (found_biketype) {
           // BikeType exists, redirect to its detail page.
-          res.redirect(found_biketype.url);
+          res.redirect(found_biketype.url_adm);
         } else {
           biketype.save(function (err) {
             if (err) {
               return next(err);
             }
             // BikeType saved. Redirect to biketype detail page.
-            res.redirect(biketype.url);
+            res.redirect(biketype.url_adm);
           });
         }
       });
@@ -276,7 +276,7 @@ exports.biketype_update_post = [
             return next(err);
           }
           // Successful - redirect to biketype detail page.
-          res.redirect(thebiketype.url);
+          res.redirect(thebiketype.url_adm);
         }
       );
     }

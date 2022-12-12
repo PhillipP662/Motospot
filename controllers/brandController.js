@@ -142,7 +142,7 @@ exports.brand_create_post = [
           return next(err);
         }
         // Successful - redirect to new brand record.
-        res.redirect(brand.url);
+        res.redirect(brand.url_adm);
       });
     }
   },
@@ -278,7 +278,7 @@ exports.brand_update_post = [
             return next(err);
           }
           // Successful - redirect to biketype detail page.
-          res.redirect(thebrand.url);
+          res.redirect(thebrand.url_adm);
         }
       );
     }

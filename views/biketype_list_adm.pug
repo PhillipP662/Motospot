@@ -10,8 +10,7 @@ block content
           ul
             each val in list_biketypes
               li(class="linkedList")
-                p TEST #{val.length}
-                a(class="linkedText" href=val.adm_url) #{val.name}
+                a(class="linkedText" href=val.url_adm) #{val.name}
 
             else
               li(class="emptyList") There are no biketype.
