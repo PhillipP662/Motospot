@@ -28,6 +28,29 @@ exports.index = function (req, res) {
       });
     }
   );
+
+};
+exports.index_adm = function (req, res) {
+  async.parallel(
+      {
+        model_count: function (callback) {
+          Model.countDocuments({}, callback);
+        },
+        brand_count: function (callback) {
+          Brand.countDocuments({}, callback);
+        },
+        biketype_count: function (callback) {
+          BikeType.countDocuments({}, callback);
+        },
+      },
+      function (err, results) {
+        res.render("index_adm", {
+          title: "Motospot HOME",
+          error: err,
+          data: results,
+        });
+      }
+  );
 };
 
 // Display list of all models.
@@ -41,6 +64,19 @@ exports.model_list = function (req, res, next) {
         } else {
           // Successful, so render
           res.render("model_list", { title: "Model List", model_list: list_models });
+        }
+      });
+};
+exports.model_list_adm = function (req, res, next) {
+  Model.find({}, "model_name brand")
+      .sort({ model_name: 1 })
+      .populate("brand")
+      .exec(function (err, list_models) {
+        if (err) {
+          return next(err);
+        } else {
+          // Successful, so render
+          res.render("model_list_adm", { title: "Model List", model_list: list_models });
         }
       });
 };
@@ -72,6 +108,34 @@ exports.model_detail = function (req, res, next) {
         model: results.model,
       });
     }
+  );
+};
+exports.model_detail_adm = function (req, res, next) {
+  async.parallel(
+      {
+        model: function (callback) {
+          Model.findById(req.params.id)
+              .populate("brand")
+              .populate("biketype")
+              .exec(callback);
+        },
+      },
+      function (err, results) {
+        if (err) {
+          return next(err);
+        }
+        if (results.model == null) {
+          // No results.
+          var err = new Error("Model not found");
+          err.status = 404;
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("model_detail_adm", {
+          model_name: results.model.model_name,
+          model: results.model,
+        });
+      }
   );
 };
 
@@ -206,7 +270,7 @@ exports.model_delete_get = function (req, res, next) {
       }
       if (results.model == null) {
         // No results.
-        res.redirect("/catalog/models");
+        res.redirect("/admMotospot/models");
       }
       // Successful, so render.
       res.render("model_delete", {
@@ -239,7 +303,7 @@ exports.model_delete_post = function (req, res, next) {
             return next(err);
           }
         // Success - got to models list.
-        res.redirect("/catalog/models");
+        res.redirect("/admMotospot/models");
     });
     }
   );

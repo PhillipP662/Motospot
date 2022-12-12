@@ -10,6 +10,9 @@ var BikeTypeSchema = new Schema({
 BikeTypeSchema.virtual("url").get(function () {
   return "/catalog/biketype/" + this._id;
 });
+BikeTypeSchema.virtual("url_adm").get(function () {
+  return "/admMotospot/biketype/" + this._id;
+});
 
 // Export model.
 module.exports = mongoose.model("BikeType", BikeTypeSchema);

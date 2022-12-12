@@ -19,6 +19,20 @@ exports.biketype_list = function (req, res, next) {
       });
     });
 };
+exports.biketype_list_adm = function (req, res, next) {
+  BikeType.find()
+      .sort([["name", "ascending"]])
+      .exec(function (err, list_biketypes) {
+        if (err) {
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("biketype_list_adm", {
+          title: "BikeType List",
+          list_biketypes: list_biketypes,
+        });
+      });
+};
 
 // Display detail page for a specific BikeType.
 exports.biketype_detail = function (req, res, next) {
@@ -51,6 +65,38 @@ exports.biketype_detail = function (req, res, next) {
         biketype_models: results.biketype_models,
       });
     }
+  );
+};
+exports.biketype_detail_adm = function (req, res, next) {
+  async.parallel(
+      {
+        biketype: function (callback) {
+          BikeType.findById(req.params.id)
+              .populate("brand")
+              .exec(callback);
+        },
+
+        biketype_models: function (callback) {
+          Model.find({ biketype: req.params.id }).exec(callback);
+        },
+      },
+      function (err, results) {
+        if (err) {
+          return next(err);
+        }
+        if (results.biketype == null) {
+          // No results.
+          var err = new Error("BikeType not found");
+          err.status = 404;
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("biketype_detail_adm", {
+          title: "BikeType Detail",
+          biketype: results.biketype,
+          biketype_models: results.biketype_models,
+        });
+      }
   );
 };
 
@@ -125,7 +171,7 @@ exports.biketype_delete_get = function (req, res, next) {
       }
       if (results.biketype == null) {
         // No results.
-        res.redirect("/catalog/biketypes");
+        res.redirect("/admMotospot/biketypes");
       }
       // Successful, so render.
       res.render("biketype_delete", {
@@ -168,7 +214,7 @@ exports.biketype_delete_post = function (req, res, next) {
             return next(err);
           }
           // Success - go to biketypes list.
-          res.redirect("/catalog/biketypes");
+          res.redirect("/admMotospot/biketypes");
         });
       }
     }

@@ -1,4 +1,4 @@
-extends layout
+extends layout_adm
 
 block content
   div(class="hero-image")
@@ -16,8 +16,14 @@ block content
               each model in brand_models
                 li(class="bikeSummary")
                   dt
-                    a(class="linkedText" href=model.url) #{model.model_name}
+                    a(class="linkedText" href=model.url_adm) #{model.model_name}
                   p(class="modelinfo") Power: #{model.power} hp
 
               else
                 p(class="emptyList") This brand has no models.
+
+        hr
+        p(class="linkedParagraph")
+          a(class="linkedText" href=brand.url_adm + '/delete') Delete brand
+        p(class="linkedParagraph")
+          a(class="linkedText" href=brand.url_adm + '/update') Update brand

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div(class="hero-image")
+    div(class="weather-content")
+      div(class="weather-content-inner")
+        h1 Weather
+        label(class="reference") Powered By: openweathermap.org
+
+        div
+          ul
+            li
+              img(src=imageurl)
+              p Temperature: #{temp}°C (Min: #{temp_min}°C, Max: #{temp_max}°C)
+              p Cloudiness: #{cloudiness}%

@@ -1,4 +1,4 @@
-extends layout
+extends layout_adm
 
 block content
   div(class="hero-image")
@@ -7,13 +7,20 @@ block content
         h1 Model Name:
         h2 #{model.model_name}
         p(class="linkedParagraph") Brand:#{" "}
-          a(class="linkedText" href=model.brand.url) #{model.brand.name}
+          a(class="linkedText" href=model.brand.url_adm) #{model.brand.name}
         p(class="linkedParagraph") Power: #{model.power} hp
         p(class="linkedParagraph") BikeType:#{" "}
           each val, index in model.biketype
-            a(class="linkedText" href=val.url) #{val.name}
+            a(class="linkedText" href=val.url_adm) #{val.name}
             if index < model.biketype.length - 1
               | ,
 
         div(class="videocontainer")
           iframe(class="ytframe" src="https://www.youtube.com/embed/" + model.yt_url title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+        hr
+        p(class="linkedParagraph")
+          a(class="linkedText" href=model.url_adm + '/delete') Delete Model
+        p(class="linkedParagraph")
+          a(class="linkedText" href=model.url_adm + '/update') Update Model
+

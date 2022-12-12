@@ -1,0 +1,17 @@
+extends layout_adm
+
+block content
+  div(class="hero-image")
+    div(class="hero-content")
+      div(class="hero-content-inner")
+        h1(class='homeTitle') MODELS:
+
+        div(class="listing")
+          ul
+            each model in model_list
+              li(class="linkedList")
+                a(class="linkedText" href=model.url_adm) #{model.model_name}
+                |  (#{model.brand.name})
+
+            else
+              li There are no models.

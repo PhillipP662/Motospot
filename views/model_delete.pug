@@ -1,4 +1,4 @@
-extends layout
+extends layout_adm
 
 block content
   div(class="hero-image")
@@ -7,7 +7,7 @@ block content
         h1(class='homeTitle') MOTOSPOT: #{model.model_name}
 
           p(class="linkedParagraph") Brand:
-            a(class="linkedText" href=model.brand.url) #{model.brand.name}
+            a(class="linkedText" href=model.brand.url_adm) #{model.brand.name}
           p(class="linkedParagraph") Power: #{model.power} hp
           p(class="linkedParagraph") BikeType:
             each val in model.biketype

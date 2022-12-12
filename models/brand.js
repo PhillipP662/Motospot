@@ -17,6 +17,9 @@ BrandSchema.virtual("name").get(function () {
 BrandSchema.virtual("url").get(function () {
   return "/catalog/brand/" + this._id;
 });
+BrandSchema.virtual("url_adm").get(function () {
+  return "/admMotospot/brand/" + this._id;
+});
 
 BrandSchema.virtual("lifespan").get(function () {
   var lifetime_string = "";

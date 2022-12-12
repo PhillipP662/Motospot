@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
+const catalogAdmRouter = require('./routes/catalogAdm');  //Import routes for "catalogAdm" area of site
 
 const compression = require('compression');
 const helmet = require('helmet');
@@ -23,7 +24,6 @@ const limiter = rateLimit({
 // Set up mongoose connection
 const mongoose = require('mongoose');
 const {frameguard} = require("helmet");
-const https = require("https");
 const dev_db_url = 'mongodb+srv://motorspotDev:motorspotDevPassword@motorspot.croipzn.mongodb.net/?retryWrites=true&w=majority';
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -45,11 +45,12 @@ app.use(cookieParser());
 // app.use(helmet());
 app.use(compression()); // Compress all routes
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
+app.use('/admMotospot', catalogAdmRouter);  // Add catalogAdm routes to middleware chain.
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

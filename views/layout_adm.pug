@@ -4,9 +4,9 @@ html(lang='en')
     title MOTOSPOT
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    script(type="text/javascript" src="../../javaScript/template.js" rel="preload")
-    script(type="text/javascript" src="../../javaScript/cookieAcceptor.js" defer)
-    script(type="text/javascript" src="../../javaScript/soundImg.js" rel="preload")
+    script(type="text/javascript" src="/javaScript/template.js" rel="preload")
+    script(type="text/javascript" src="/javaScript/cookieAcceptor.js" defer)
+    script(type="text/javascript" src="/javaScript/soundImg.js" rel="preload")
     script(src="https://kit.fontawesome.com/96ca9480c7.js" crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
@@ -18,18 +18,24 @@ html(lang='en')
         input(type="checkbox" id="check")
         label(for="check" class="checkbtn")
           i(class="fa-solid fa-bars")
-        a(class="logoA" href="/catalog") Motospot
+        a(class="logoA" href="/admMotospot") Motospot
         ul(class="navlist")
           li(class="navitem")
-            a(href='/catalog' class="navanchor") Home
+            a(href='/admMotospot' class="navanchor") Home
           li(class="navitem")
-            a(href='/catalog/brands' class="navanchor") All brands
+            a(href='/admMotospot/brands' class="navanchor") All brands
           li(class="navitem")
-            a(href='/catalog/models' class="navanchor") All models
+            a(href='/admMotospot/models' class="navanchor") All models
           li(class="navitem")
-            a(href='/catalog/biketypes' class="navanchor") All biketypes
+            a(href='/admMotospot/biketypes' class="navanchor") All biketypes
           li(class="navitem")
-            a(href='/catalog/weather' class="navanchor") Weather
+            a(href='/admMotospot/brand/create' class="navanchor") Create new brand
+          li(class="navitem")
+            a(href='/admMotospot/model/create' class="navanchor") Create new model
+          li(class="navitem")
+            a(href='/admMotospot/biketype/create' class="navanchor") Create new biketype
+          li(class="navitem")
+            a(href='/admMotospot/weather' class="navanchor") Weather
 
     block content
 

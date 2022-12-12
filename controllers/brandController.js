@@ -19,6 +19,20 @@ exports.brand_list = function (req, res, next) {
       });
     });
 };
+exports.brand_list_adm = function (req, res, next) {
+  Brand.find()
+      .sort([["brand_name", "ascending"]])
+      .exec(function (err, list_brands) {
+        if (err) {
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("brand_list_adm", {
+          title: "Brand List",
+          brand_list: list_brands,
+        });
+      });
+};
 
 // Display detail page for a specific Brand.
 exports.brand_detail = function (req, res, next) {
@@ -48,6 +62,35 @@ exports.brand_detail = function (req, res, next) {
         brand_models: results.brands_models,
       });
     }
+  );
+};
+exports.brand_detail_adm = function (req, res, next) {
+  async.parallel(
+      {
+        brand: function (callback) {
+          Brand.findById(req.params.id).exec(callback);
+        },
+        brands_models: function (callback) {
+          Model.find({ brand: req.params.id }).exec(callback);
+        },
+      },
+      function (err, results) {
+        if (err) {
+          return next(err);
+        } // Error in API usage.
+        if (results.brand == null) {
+          // No results.
+          var err = new Error("Brand not found");
+          err.status = 404;
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("brand_detail_adm", {
+          title: "Brand Detail",
+          brand: results.brand,
+          brand_models: results.brands_models,
+        });
+      }
   );
 };
 
@@ -122,7 +165,7 @@ exports.brand_delete_get = function (req, res, next) {
       }
       if (results.brand == null) {
         // No results.
-        res.redirect("/catalog/brands");
+        res.redirect("/admMotospot/brands");
       }
       // Successful, so render.
       res.render("brand_delete", {
@@ -165,7 +208,7 @@ exports.brand_delete_post = function (req, res, next) {
             return next(err);
           }
           // Success - go to brand list.
-          res.redirect("/catalog/brands");
+          res.redirect("/admMotospot/brands");
         });
       }
     }

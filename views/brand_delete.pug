@@ -1,4 +1,4 @@
-extends layout
+extends layout_adm
 
 block content
   div(class="hero-image")
@@ -18,7 +18,7 @@ block content
               dl
               each model in brand_models
                 dt
-                  a(href=model.url) #{model.model_name}
+                  a(href=model.url_adm) #{model.model_name}
                 dd #{model.power}
 
           else

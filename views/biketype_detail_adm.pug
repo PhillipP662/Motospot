@@ -1,0 +1,25 @@
+extends layout_adm
+
+block content
+  div(class="hero-image")
+    div(class="hero-content")
+      div(class="hero-content-inner")
+        h1 BikeType: #{biketype.name}
+
+          div
+
+            h4 Models
+            dl
+            each model in biketype_models
+              dt
+                a(class="linkedText" href=model.url_adm) Name: #{model.model_name}
+              p Power: #{model.power} hp
+
+            else
+              p(class="emptyList") This biketype has no models.
+
+          hr
+          p(class="linkedParagraph")
+            a(class="linkedText" href=biketype.url_adm + '/delete') Delete biketype
+          p(class="linkedParagraph")
+            a(class="linkedText" href=biketype.url_adm + '/update') Update biketype

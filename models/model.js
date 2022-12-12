@@ -14,6 +14,9 @@ var ModelSchema = new Schema({
 ModelSchema.virtual("url").get(function () {
   return "/catalog/model/" + this._id;
 });
+ModelSchema.virtual("url_adm").get(function () {
+  return "/admMotospot/model/" + this._id;
+});
 
 // Export model.
 module.exports = mongoose.model("Model", ModelSchema);
