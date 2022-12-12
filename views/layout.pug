@@ -41,10 +41,10 @@ html(lang='en')
 
     block cookies
       div(class="cookiewrapper")
-        img(src="../images/cookie.png" alt="Image not found")
+        img(src="/images/cookie.png" alt="Image not found")
         div(class="cookiecontent")
           header Cookies Consent
-          p This website use cookies to ensure you get the best experience on our website.
+          p This website uses cookies to ensure you get the best possible experience on our website.
           div(class="cookiebuttons")
             button(class="cookieitem") I understand
             a(href="/catalog/cookie_policy" class="cookieitem") Learn more
@@ -56,9 +56,9 @@ html(lang='en')
             div
               audio(id="audio" src='../../audio/motorSound.wav')
               a(href="#play" id='play' class='logo')
-                img(id='logo' src='../../images/logo-light.png' onclick="playAudio('../../audio/motorSound.wav')")
+                img(id='logo' src='/images/logo-light.png' onclick="playAudio('../../audio/motorSound.wav')")
           h3 Motospot
-          p Volg ons alvast op social media. Momenteel worden deze nog niet actief gebruikt maar misschien in de toekomst.
+          p(id="footertext") Volg ons alvast op social media. Momenteel worden deze nog niet actief gebruikt maar misschien in de toekomst.
 
           ul(class="socials")
             li
@@ -74,4 +74,4 @@ html(lang='en')
                 i(class="fa fa-linkedin-square socialIcon")
 
         div(class="footer-bottom")
-          p copyright &copy;2022 Motospot. designed by #[span Jelle Basic and Phillip Pinter]
+          p(id="copyright") copyright &copy;2022 Motospot. designed by #[span Jelle Basic and Phillip Pinter]

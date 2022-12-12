@@ -74,57 +74,6 @@ a.active,a:hover{
 #check{
     display: none;
 }
-@media (max-width: 1665px){
-    .checkbtn{
-        display: block;
-    }
-    .navlist{
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #2c3e50;
-        top: 80px;
-        left: -100%;
-        text-align: center;
-        transition: all .5s;
-    }
-    nav .navlist .navitem{
-        display: block;
-        margin: 50px 0;
-        line-height: 30px;
-    }
-    nav .navlist .navitem .navanchor{
-        font-size: 20px;
-    }
-    .navanchor:hover,.navanchor.active{
-        background: none;
-        color: #0082e6;
-    }
-    #check:checked ~ .navlist{
-        left: 0;
-    }
-}
-@media (max-width: 442px){
-    .logoA {
-        color: white;
-        font-size: 35px;
-        line-height: 80px;
-        padding: 0 30px;
-        margin-left: 5px;
-        font-weight: bold;
-    }
-}
-@media (max-width: 307px){
-    .logoA {
-        display: none;
-    }
-    .checkbtn{
-        float: right;
-        line-height: 80px;
-        margin-right: 40px;
-        cursor: pointer;
-    }
-}
 
 .hero-image {
     position: relative;
@@ -152,7 +101,6 @@ a.active,a:hover{
     justify-content: center;
     align-items: center;
     margin: 0 auto 80px auto;
-
 }
 .hero-content-inner {
     /*height: min(100vh - 80px, 100%);*/
@@ -183,7 +131,7 @@ a.active,a:hover{
     /*line-height: 22px;*/
 }
 #hometext {
-    width: 100%;
+    width: 90%;
     margin: 20px auto;
     font-size: 22px;
     font-weight: normal;
@@ -225,65 +173,6 @@ a.active,a:hover{
     border-color: white;
     color: white;
     background: transparent;
-}
-@media(max-width: 760px) {
-    .hero-content {
-        width: 100%;
-    }
-    .hero-content-inner h1 {
-        width: 100%;
-    }
-    .hero-content-inner p {
-        width: 100%;
-    }
-}
-@media(max-width: 442px) {
-    .hero-content-inner h1 {
-        width: 300px;
-        font-size: 40px;
-    }
-    .hero-content-inner p {
-        width: 300px;
-    }
-}
-@media(max-width: 354px) {
-    .hero-content-inner h1 {
-        width: 100%;
-        font-size: 30px;
-        margin: 0 0;
-        padding: 12px 0;
-    }
-    .hero-content-inner p {
-        width: 70vw;
-        font-size: 26px;
-        margin: 10px 0;
-    }
-    .hero-content-inner a {
-        font-size: 26px;
-        margin: 10px 0;
-    }
-}
-@media(max-height: 400px) {
-    .hero-content {
-        padding: 10px 10px;
-        align-items: normal;
-    }
-    .hero-content-inner h1 {
-        width: 80%;
-        font-size: 30px;
-        padding: 1px;
-        margin: 5px auto;
-    }
-    .hero-content-inner p {
-        width: 70vw;
-    }
-    .hero-content-inner button {
-        width: 120px;
-        height: 30px;
-        margin-top: 20px;
-        border-radius: 40px;
-        font-size: 15px;
-    }
 }
 
 /* Footer */
@@ -400,14 +289,10 @@ footer {
     margin: 2px;
     font-size: 30px;
 }
-@media(max-width: 354px) {
-    .linkedParagraph {
-        margin: 10px 0;
-        padding: 12px 0;
-    }
-}
+
 iframe {
     padding: 10px;
+    margin: auto;
 }
 .emptyList {
     padding: 12px;
@@ -431,26 +316,31 @@ iframe {
 /* Weather */
 .weather-content {
     position: relative;
-    width: 60%;
+    width: 100%;
+    height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: normal;
-    height: 100vh;
-    margin: 0 auto;
+    margin: 0 auto 80px auto;
+}
+.weather-content-inner {
+    width: 100%;
+    height: 100%;
+    margin: 80px auto 80px auto;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .weather-content-inner h1 {
     width: 580px;
     font-size: 50px;
-    color: white;
-    margin: 10px auto;
-    padding-top: 50px;
+    color: #ffffff;
+    margin: 20px auto 10px auto;
 }
 .weather-content-inner p {
-    width: 80vw;
+    width: 100%;
     margin: 0 auto;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: normal;
-    padding: 20px 0;
     color: white;
 }
 .reference {
@@ -481,17 +371,18 @@ iframe {
 .search-content {
     position: relative;
     width: 100%;
+    height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: min(100vh - 80px, 100%);
     margin: 0 auto 80px auto;
-    overflow: hidden;
-    overflow-y: scroll;
 }
 .search-content-inner {
-    height: min(100vh - 80px, 100%);
+    width: 600px;
+    height: 100%;
     margin: 80px auto 80px auto;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .search-content-inner h1 {
     width: 580px;
@@ -521,15 +412,17 @@ iframe {
     padding: 10px 20px;
     max-width: 600px;
     width: 95%;
+    border-radius: 10px;
 }
 .search-content-inner button, #search-box, textarea {
     font-family: inherit;
     font-size: 100%;
 }
 .searchsuggestion {
+    font-size: 30px;
     color: white;
-    margin: 8px auto;
-    padding: 8px;
+    margin: 12px auto;
+    padding: 12px;
 }
 .searchDiv {
     padding: 4px;
@@ -687,4 +580,298 @@ iframe {
     font-size: 50px;
     color: #ffffff;
     margin: 20px auto 10px auto;
+}
+
+/* Responsive website */
+@media (max-width: 1665px){
+    .checkbtn{
+        display: block;
+    }
+    .navlist{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav .navlist .navitem{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav .navlist .navitem .navanchor{
+        font-size: 20px;
+    }
+    .navanchor:hover,.navanchor.active{
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked ~ .navlist{
+        left: 0;
+    }
+}
+@media(max-width: 760px) {
+    .hero-content {
+        width: 100%;
+    }
+    .hero-content-inner h1 {
+        width: 90%;
+    }
+    .hero-content-inner p {
+        width: 90%;
+    }
+    .weather-content {
+        width: 100%;
+    }
+    .weather-content-inner h1 {
+        width: 90%;
+    }
+    .weather-content-inner p {
+        width: 90%;
+    }
+}
+@media (max-width: 640px){
+    .search-content-inner h1 {
+        inline-size: min-content;
+        width: 90%;
+        padding: 12px 0;
+    }
+    .search-content-inner h2 {
+        inline-size: min-content;
+        width: 90%;
+        font-size: 30px;
+        margin: 0 auto;
+        padding: 12px 0;
+    }
+    .search-content-inner p {
+        inline-size: min-content;
+        width: 70vw;
+        margin: 10px auto;
+    }
+    .search-content-inner a {
+        inline-size: min-content;
+        margin: 10px 0;
+    }
+}
+@media (max-width: 610px){
+    #copyright {
+        inline-size: min-content;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 580px){
+    .hero-content-inner .listing {
+        width: 90%;
+    }
+    .hero-content-inner li {
+        width: 90%;
+    }
+    .hero-content-inner a {
+        inline-size: min-content;
+        margin: auto;
+    }
+    .hero-content-inner h2 {
+        width: 300px;
+        font-size: 50px;
+    }
+}
+@media (max-width: 530px){
+    #footertext {
+        inline-size: min-content;
+        width: 90%;
+    }
+    .socials .socialIcon {
+        padding: 20px 10px;
+    }
+}
+@media (max-width: 442px){
+    .logoA {
+        color: white;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 30px;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+    .hero-content-inner h1 {
+        width: 300px;
+        font-size: 40px;
+    }
+    .hero-content-inner h2 {
+        width: 300px;
+        font-size: 40px;
+    }
+    .hero-content-inner p {
+        width: 300px;
+    }
+}
+@media(max-width: 354px) {
+    .hero-content-inner h1 {
+        inline-size: min-content;
+        width: 90%;
+        font-size: 30px;
+        margin: 0 auto;
+        padding: 12px 0;
+    }
+    .hero-content-inner h2 {
+        inline-size: min-content;
+        width: 90%;
+        font-size: 30px;
+        margin: 0 auto;
+        padding: 12px 0;
+    }
+    .hero-content-inner p {
+        inline-size: min-content;
+        width: 70vw;
+        font-size: 26px;
+        margin: 10px auto;
+    }
+    .hero-content-inner a {
+        inline-size: min-content;
+        font-size: 26px;
+        margin: 10px 0;
+    }
+    .linkedParagraph {
+        margin: 10px 0;
+        padding: 12px 0;
+    }
+}
+@media (max-width: 312px){
+    .logoA {
+        display: none;
+    }
+    .checkbtn{
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+    }
+    .search-content-inner h1 {
+        font-size: 36px;
+    }
+    .search-content-inner a {
+        font-size: 20px;
+    }
+}
+@media (max-width: 255px){
+
+}
+@media (max-width: 146px){
+    .search-content-inner h1 {
+        font-size: 26px;
+    }
+    .search-content-inner a {
+        font-size: 16px;
+    }
+}
+
+@media(max-height: 560px) {
+    .weather-content-inner {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto 80px auto;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+}
+@media(max-height: 400px) {
+    body{
+        padding-top: 50px;
+    }
+    .navlist {
+        top: 50px;
+    }
+    nav .navlist .navitem{
+        line-height: 50px;
+    }
+    .hero-image {
+        height: calc(100vh - 50px);
+    }
+    .hero-content {
+        height: calc(100vh - 50px);
+        margin: 0 auto 50px auto;
+        padding: 10px 10px;
+        align-items: normal;
+    }
+    .hero-content-inner {
+        margin: 0;
+    }
+    .hero-content-inner h1 {
+        inline-size: min-content;
+        width: 80%;
+        font-size: 30px;
+        padding: 1px;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .hero-content-inner h2 {
+        inline-size: min-content;
+        width: 80%;
+        font-size: 30px;
+        padding: 1px;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .hero-content-inner p {
+        inline-size: min-content;
+        width: 80%;
+        text-align: center;
+        margin: 10px auto;
+    }
+    .hero-content-inner a {
+        font-size: 30px;
+    }
+    .hero-content-inner button {
+        width: 120px;
+        height: 30px;
+        margin-top: 20px;
+        border-radius: 40px;
+        font-size: 15px;
+    }
+
+    nav{
+        height: 50px;
+    }
+    .fixed-navbar {
+        top: 0; bottom: 50px; left: 0; right: 0;
+    }
+    .logoA {
+        line-height: 50px;
+        margin-left: 50px;
+        padding: 2px 10px;
+    }
+    nav .navlist .navitem{
+        line-height: 50px;
+    }
+    .checkbtn{
+        line-height: 50px;
+        display: block;
+    }
+    .weather-content {
+        height: calc(100vh - 50px);
+        margin: 0 auto 50px auto;
+        padding: 10px 10px;
+        align-items: normal;
+    }
+    .weather-content-inner {
+        margin: 0;
+    }
+    .weather-content-inner h1 {
+        inline-size: min-content;
+        width: 80%;
+        font-size: 30px;
+        padding: 1px;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .weather-content-inner p {
+        inline-size: min-content;
+        width: 80%;
+        text-align: center;
+        margin: 10px auto;
+    }
 }
