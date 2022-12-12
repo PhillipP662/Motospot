@@ -9,15 +9,15 @@ block content
 
         div
 
-          h4 Models
+          h2 Models
 
           div
             dl
               each model in brand_models
                 li(class="bikeSummary")
                   dt
-                    a(class="linkedText" href=model.url) Name: #{model.model_name}
-                  dd(class="infoText") Power: #{model.power} hp
+                    a(class="linkedText" href=model.url) #{model.model_name}
+                  p(class="modelinfo") Power: #{model.power} hp
 
               else
                 p(class="emptyList") This brand has no models.

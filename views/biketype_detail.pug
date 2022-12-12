@@ -13,7 +13,7 @@ block content
             each model in biketype_models
               dt
                 a(class="linkedText" href=model.url) Name: #{model.model_name}
-              dd(class="linkedText") Power: #{model.power} hp
+              p Power: #{model.power} hp
 
             else
               p(class="emptyList") This biketype has no models.

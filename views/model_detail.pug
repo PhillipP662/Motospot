@@ -5,11 +5,11 @@ block content
     div(class="hero-content")
       div(class="hero-content-inner")
         h1 Model Name:
-        h1 #{model.model_name}
-        p(class="linkedParagraph") Brand:
+        h2 #{model.model_name}
+        p(class="linkedParagraph") Brand:#{" "}
           a(class="linkedText" href=model.brand.url) #{model.brand.name}
         p(class="linkedParagraph") Power: #{model.power} hp
-        p(class="linkedParagraph") BikeType:
+        p(class="linkedParagraph") BikeType:#{" "}
           each val, index in model.biketype
             a(class="linkedText" href=val.url) #{val.name}
             if index < model.biketype.length - 1

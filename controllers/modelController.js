@@ -340,7 +340,7 @@ exports.model_update_post = [
       model_name: req.body.model_name,
       brand: req.body.brand,
       power: req.body.power,
-      yt_url: req.body.yt_url,
+      yt_url: req.body.yt_url.split('v=').slice(-1)[0].split('/').slice(-1)[0].split('&')[0],
       biketype: typeof req.body.biketype === "undefined" ? [] : req.body.biketype,
       _id: req.params.id, // This is required, or a new ID will be assigned!
     });

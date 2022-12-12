@@ -4,14 +4,14 @@ block content
   div(class="hero-image")
     div(class="hero-content")
       div(class="hero-content-inner")
-        h1(class='homeTitle') MOTOSPOT
+        h1(class='homeTitle') MODELS:
 
-          div
-            ul
-              each model in model_list
-                li(class="linkedList")
-                  a(class="linkedText" href=model.url) #{model.model_name}
-                  |  (#{model.brand.name})
+        div(class="listing")
+          ul
+            each model in model_list
+              li(class="linkedList")
+                a(class="linkedText" href=model.url) #{model.model_name}
+                |  (#{model.brand.name})
 
-              else
-                li There are no models.
+            else
+              li There are no models.

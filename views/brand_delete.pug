@@ -5,7 +5,7 @@ block content
     div(class="hero-content")
       div(class="hero-content-inner")
         h1(class='homeTitle') MOTOSPOT: #{brand.name}
-          p= brand.lifespan
+        p(id="lifespan") #{brand.lifespan}
 
           if brand_models.length
 

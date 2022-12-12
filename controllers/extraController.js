@@ -35,3 +35,8 @@ exports.get_models = async function (req, res) {
     search = search.slice(0, 10);
     res.send({payload: search});
 };
+
+// Display cookie policy
+exports.view_cookie_policy = function (req, res) {
+    res.render("cookie_policy");
+};

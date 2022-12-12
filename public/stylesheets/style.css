@@ -131,7 +131,7 @@ a.active,a:hover{
     width: 100%;
     height: calc(100vh - 80px);
     text-align: center;
-    background: url(../images/homepageImg5.jpg) no-repeat center center;
+    background: url(../images/background-image-1080p.jpg) no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
@@ -147,31 +147,64 @@ a.active,a:hover{
 .hero-content {
     position: relative;
     width: 100%;
+    height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: min(100vh - 80px, 100%);
     margin: 0 auto 80px auto;
-    overflow: hidden;
-    overflow-y: scroll;
+
 }
 .hero-content-inner {
-    height: min(100vh - 80px, 100%);
+    /*height: min(100vh - 80px, 100%);*/
+    width: 600px;
+    height: 100%;
     margin: 80px auto 80px auto;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .hero-content-inner h1 {
     width: 580px;
     font-size: 50px;
-    color: white;
-    margin: 50px auto 0 auto;
+    color: #ffffff;
+    margin: 20px auto 10px auto;
+}
+.hero-content-inner h2 {
+    width: 580px;
+    font-size: 50px;
+    color: #ffffff;
+    margin: 10px auto 10px auto;
 }
 .hero-content-inner p {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
-    /*font-size: 16px;*/
+    font-size: 30px;
     font-weight: normal;
-    color: white;
+    color: rgb(255, 117, 24);
     /*line-height: 22px;*/
+}
+#hometext {
+    width: 100%;
+    margin: 20px auto;
+    font-size: 22px;
+    font-weight: normal;
+    color: rgb(255, 117, 24);
+    /*line-height: 22px;*/
+}
+.hero-content-inner a {
+    font-size: 36px;
+    color: #ffffff;
+    text-shadow: 1px 0 #0082e6, -1px 0 #0082e6, 0 1px #0082e6, 0 -1px #0082e6,
+    1px 1px #0082e6, -1px -1px #0082e6, 1px -1px #0082e6, -1px 1px #0082e6;
+}
+.hero-content-inner li {
+    width: 100%;
+    font-size: 36px;
+    color: #ffffff;
+    /*text-shadow: 1px 0 #0082e6, -1px 0 #0082e6, 0 1px #0082e6, 0 -1px #0082e6,*/
+    /*1px 1px #0082e6, -1px -1px #0082e6, 1px -1px #0082e6, -1px 1px #0082e6;*/
+}
+.hero-content-inner .modelinfo {
+    margin: 10px auto 20px auto;
 }
 .hero-content-inner button {
     width: 170px;
@@ -335,6 +368,13 @@ footer {
     opacity: 0.8;
     font-weight: 200;
 }
+#play:hover {
+    background: none;
+}
+#logo {
+    width: 100px;
+    height: auto;
+}
 
 /* New added */
 .linkedText {
@@ -482,7 +522,7 @@ iframe {
     max-width: 600px;
     width: 95%;
 }
-.search-content-inner button, input, select, textarea {
+.search-content-inner button, #search-box, textarea {
     font-family: inherit;
     font-size: 100%;
 }
@@ -502,6 +542,17 @@ iframe {
 
 /* Cookies */
 .cookiewrapper {
+    visibility: hidden;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: white;
+    max-width: 365px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 25px 25px 30px 25px;
+}
+.cookiewrapper2 {
     visibility: hidden;
     position: absolute;
     bottom: 30px;
@@ -552,4 +603,88 @@ iframe {
 }
 .cookiebuttons a {
     color: #ff7518;
+}
+
+/* Cookie policy */
+.policy-image {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    text-align: center;
+    background: url(../images/background-image-1080p.jpg) no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.policy-image::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+}
+.policy-content {
+    color: white;
+    position: relative;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min(100vh - 80px, 100%);
+    margin: 0 auto 100px auto;
+    overflow: auto;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.policy-content-inner {
+    height: min(100vh - 80px, 100%);
+    margin: 80px auto 80px auto;
+}
+.policy-content-inner h1 {
+    width: 580px;
+    font-size: 50px;
+    color: white;
+    margin: 50px auto;
+}
+.policy-content-inner h2 {
+    width: 75%;
+    text-align: left;
+    font-size: 30px;
+    color: white;
+    margin: 30px auto 0 auto;
+}
+.policy-content-inner p {
+    width: 75%;
+    text-align: left;
+    margin: 10px auto 30px auto;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
+    color: white;
+}
+.policy-content-inner a {
+    color: #ff7518;
+}
+
+.formInput {
+    width: 120px;
+    height: 30px;
+    margin: 2px;
+    padding: 2px;
+}
+.formSelector {
+    width: 120px;
+    height: 30px;
+    margin: 2px;
+    padding: 2px;
+}
+#lifespan {
+    margin-bottom: 40px;
+}
+.listing {
+    width: 580px;
+    font-size: 50px;
+    color: #ffffff;
+    margin: 20px auto 10px auto;
 }

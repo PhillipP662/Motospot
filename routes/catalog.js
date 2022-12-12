@@ -99,22 +99,7 @@ router.get("/biketype/:id", biketype_controller.biketype_detail);
 router.get("/biketypes", biketype_controller.biketype_list);
 
 /// COOKIES ///
-function validateCookie(req, res, next) {
-    const { cookies } = req;
-    if ('session_id' in cookies) {
-        console.log('Session ID Exists.');
-        if (cookies.session_id === '123456') next();
-        else res.status(403).send( { msg: 'Not Authenticated' });
-    }   else res.status(403).send( { msg: 'Not Authenticated' });
-}
-router.get("/signin", function(req, res) {
-    res.cookie('session_id', '123456');
-    res.status(200).json({ msg: 'Logged In' });
-    //res.render("tempView");
-});
-router.get("/protected", validateCookie, function(req, res) {
-    res.status(200).json( { msg: 'You are authorized!'});
-});
+router.get("/cookie_policy", extra_controller.view_cookie_policy);
 
 
 module.exports = router;

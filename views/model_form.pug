@@ -8,10 +8,10 @@ block content
           form(method='POST' action='')
             div.form-group
               label(for='model_name' class="formText") Model:
-              input#model_name.form-control(type='text', placeholder='Name of model' name='model_name' required='true' value=(undefined === model ? '' : model.model_name) )
+              input(class="formInput")#model_name.form-control(type='text', placeholder='Name of model' name='model_name' required='true' value=(undefined === model ? '' : model.model_name) )
             div.form-group
               label(for='brand' class="formText") Brand:
-              select#brand.form-control(type='select', placeholder='Select brand' name='brand' required='true' )
+              select(class="formSelector")#brand.form-control(type='select', placeholder='Select brand' name='brand' required='true' )
                 - brands.sort(function(a, b) {let textA = a.brand_name.toUpperCase(); let textB = b.brand_name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                 for brand in brands
                   if model
@@ -20,10 +20,10 @@ block content
                     option(value=brand._id) #{brand.name}
             div.form-group
               label(for='power' class="formText") Power:
-              input#power.form-control(type='textarea', placeholder='# hp' name='power' value=(undefined === model ? '' : model.power) required='true')
+              input(class="formInput")#power.form-control(type='textarea', placeholder='# hp' name='power' value=(undefined === model ? '' : model.power) required='true')
             div.form-group(id="yt_urlTEST")
-              label(for='yt_url' class="formText") YouTube URL:
-              input#yt_url.form-control(type='url', placeholder='Paste URL here...' name='yt_url' value=(undefined === model ? '' : model.yt_url) required='true')
+              label(for='yt_url' class="formText") YouTube url/token:
+              input(class="formInput")#yt_url.form-control(type='textarea', placeholder='Paste URL here...' name='yt_url' value=(undefined === model ? '' : model.yt_url) required='true')
             div.form-group
               div
                 label(class="formText") Bike Type:

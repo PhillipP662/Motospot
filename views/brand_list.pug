@@ -4,13 +4,13 @@ block content
   div(class="hero-image")
     div(class="hero-content")
       div(class="hero-content-inner")
-        h1(class='homeTitle') MERKEN:
+        h1(class='homeTitle') BRANDS:
 
-          div
-            ul
-              each brand in brand_list
-                li(class="linkedList")
-                  a(class="linkedText" href=brand.url) #{brand.name}
+        div(class="listing")
+          ul
+            each brand in brand_list
+              li(class="linkedList")
+                a(class="linkedText" href=brand.url) #{brand.name}
 
-              else
-                li There are no brands.
+            else
+              li There are no brands.

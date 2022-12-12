@@ -6,6 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     script(type="text/javascript" src="../../javaScript/template.js" rel="preload")
     script(type="text/javascript" src="../../javaScript/cookieAcceptor.js" defer)
+    script(type="text/javascript" src="../../javaScript/soundImg.js" rel="preload")
     script(src="https://kit.fontawesome.com/96ca9480c7.js" crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
@@ -46,11 +47,16 @@ html(lang='en')
           p This website use cookies to ensure you get the best experience on our website.
           div(class="cookiebuttons")
             button(class="cookieitem") I understand
-            a(href="#" class="cookieitem") Learn more
+            a(href="/catalog/cookie_policy" class="cookieitem") Learn more
 
     block footer
       footer
         div(class="footer-content")
+          div
+            div
+              audio(id="audio" src='../../audio/motorSound.wav')
+              a(href="#play" id='play' class='logo')
+                img(id='logo' src='../../images/logo-light.png' onclick="playAudio('../../audio/motorSound.wav')")
           h3 Motospot
           p Volg ons alvast op social media. Momenteel worden deze nog niet actief gebruikt maar misschien in de toekomst.
 
@@ -69,18 +75,3 @@ html(lang='en')
 
         div(class="footer-bottom")
           p copyright &copy;2022 Motospot. designed by #[span Jelle Basic and Phillip Pinter]
-
-
-
-
-    //div
-    //  div
-    //    audio(id="audio" src='../../audio/motorSound.wav')
-    //    a(href="#" id='play' class='logo')
-    //      img(class='logo' src='../../images/logo-light.png' onclick="playAudio('../../audio/motorSound.wav')")
-
-
-
-
-
-

@@ -6,11 +6,11 @@ block content
       div(class="hero-content-inner")
         h1(class='homeTitle') MOTOSPOT
 
-          div
-            ul
-              each val in list_biketypes
-                li(class="linkedList")
-                  a(class="linkedText" href=val.url) #{val.name}
+        div(class="listing")
+          ul
+            each val in list_biketypes
+              li(class="linkedList")
+                a(class="linkedText" href=val.url) #{val.name}
 
-              else
-                li(class="emptyList") There are no biketype.
+            else
+              li(class="emptyList") There are no biketype.
