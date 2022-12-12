@@ -7,25 +7,20 @@ block content
         h1(class='homeTitle') MOTOSPOT: #{brand.name}
         p(id="lifespan") #{brand.lifespan}
 
-          if brand_models.length
+        if brand_models.length
 
-            p #[strong Delete the following models before attempting to delete this brand.]
+          p(class="linkedParagraph") Delete the following models before attempting to delete this brand.
 
-            div
+          each model in brand_models
+            dt
+              a(href=model.url_adm) #{model.model_name}
+            dd(class="linkedParagraph")  #{model.power} HP
 
-              h4 Models
+        else
+          p Do you really want to delete this Brand?
 
-              dl
-              each model in brand_models
-                dt
-                  a(href=model.url_adm) #{model.model_name}
-                dd #{model.power}
+          form(method='POST' action='')
+            div.form-group
+              input#brandid.form-control(type='hidden', name='brandid', required='true', value=brand._id )
 
-          else
-            p Do you really want to delete this Brand?
-
-            form(method='POST' action='')
-              div.form-group
-                input#brandid.form-control(type='hidden',name='brandid', required='true', value=brand._id )
-
-              button.btn.btn-primary(type='submit') Delete
+            button.btn.btn-primary(type='submit') Delete

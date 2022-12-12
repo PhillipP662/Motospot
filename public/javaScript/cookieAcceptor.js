@@ -3,7 +3,7 @@ const cookieBox = document.querySelector(".cookiewrapper"),
 const cookiebox2= document.querySelector(".cookiewrapper");
 acceptBtn.onclick = () => {
     // setting cookie for 1 day, after 1 day cookie will be expired automatically
-    document.cookie = "CookiesAccepted=true; max-age="+60*60*24+"; secure; samesite=lax; Secure";
+    document.cookie = "CookiesAccepted=true; max-age="+60*60*24+"; SameSite=None; Secure";
     if (document.cookie) { // if the above cookie set
         cookieBox.classList.add("hide"); // hide cookie box once cookie set
     } else {

@@ -5,23 +5,19 @@ block content
     div(class="hero-content")
       div(class="hero-content-inner")
         h1(class='homeTitle') MOTOSPOT: #{model.model_name}
+        p(class="linkedParagraph") Brand:
+          a(class="linkedText" href=model.brand.url_adm) #{model.brand.name}
+        p(class="linkedParagraph") Power: #{model.power} hp
+        p(class="linkedParagraph") BikeType:
+          each val in model.biketype
+            a(class="linkedText" href=val.url_adm) #{val.name}
+            |
+        hr
 
-          p(class="linkedParagraph") Brand:
-            a(class="linkedText" href=model.brand.url_adm) #{model.brand.name}
-          p(class="linkedParagraph") Power: #{model.power} hp
-          p(class="linkedParagraph") BikeType:
-            each val in model.biketype
-              a(class="linkedText" href=val.url) #{val.name}
-              | ,
-          iframe(width="560" height="315" src="https://www.youtube.com/embed/" + model.yt_url.split('v=')[1].split('&')[0] title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        p(class="linkedParagraph") Do you really want to delete this Model?
 
+          form(method='POST' action='')
+            div.form-group
+              input#id.form-control(type='hidden',name='id', required='true', value=model._id )
 
-          hr
-
-          p(class="linkedParagraph") Do you really want to delete this Model?
-
-            form(method='POST' action='')
-              div.form-group
-                input#id.form-control(type='hidden',name='id', required='true', value=model._id )
-
-              button.btn.btn-primary(type='submit') Delete
+            button.btn.btn-primary(type='submit') Delete
